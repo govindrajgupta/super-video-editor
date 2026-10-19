@@ -36,7 +36,7 @@ Code" (https://youtu.be/xOhh274Ayac), rebuilt here with free assets.
 | Shared parallax-punch rig (scenes 4 and 6) | `src/elements/GroundedPunch.tsx` |
 | Master reel with voice, effects and music | `src/NetflixReel.tsx` |
 | Sound effects and music | `tools/sound.py` |
-| Optional ChatGPT asset prompts | `docs/chatgpt-prompts.md` |
+| Swapping a new photo into an asset slot | `tools/fit_asset.py` |
 
 ## Signature moves by scene
 

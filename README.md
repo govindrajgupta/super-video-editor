@@ -7,7 +7,6 @@ local tools.
 - How it's made: [docs/workflow.md](docs/workflow.md)
 - Storyboard and script: [docs/storyboard.md](docs/storyboard.md)
 - Asset credits: [CREDITS.md](CREDITS.md)
-- Optional ChatGPT prompts for AI-generated assets: [docs/chatgpt-prompts.md](docs/chatgpt-prompts.md)
 
 ## Commands
 
@@ -29,6 +28,12 @@ limiter (about -16.5 LUFS, true peak under -1 dB). Needs `ffmpeg` on the PATH.
 .venv/Scripts/python tools/prepare_assets.py
 ```
 Turns photos in `assets-src/raw/` into cut-outs, backgrounds and textures in `public/assets/`.
+
+```console
+.venv/Scripts/python tools/fit_asset.py new-photo.jpg public/assets/boss.png --cutout
+```
+Swaps a new photo into an asset slot: `--cutout` removes the background, PNG targets are trimmed
+to their edges, JPG targets are flattened. Back up the old file first if you may want it back.
 
 ```console
 .venv/Scripts/python tools/voiceover.py am_michael 1.0
