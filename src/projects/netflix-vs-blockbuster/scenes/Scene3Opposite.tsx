@@ -134,7 +134,7 @@ const Scene3Content: React.FC<{ readonly caption: string }> = ({ caption }) => {
           style={{ left: 0, top: 0, ...customers }}
         />
       </AbsoluteFill>
-      <Caption at={4} fadeAt={48} size={110} style={{ left: 0, right: 0, top: 210, textAlign: "center" }}>
+      <Caption at={4} fadeAt={48} size={110} style={{ left: 0, right: 0, top: 240, textAlign: "center" }}>
         {caption}
       </Caption>
     </AbsoluteFill>

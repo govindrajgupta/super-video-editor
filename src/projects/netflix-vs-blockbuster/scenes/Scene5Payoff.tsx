@@ -40,6 +40,8 @@ const Scene5Content: React.FC<{
   const frame = useCurrentFrame();
   const lampOn = isOn(frame, LAMP_ON) ? 1 : 0;
   const founder = boil(frame, { period: 90, breathe: 0.007, sway: 0.6 });
+  // Vintage focus hunt: soft open, clears by 21, dips out of focus once before the headline.
+  const defocus = interpolate(frame, [0, 21, 40, 48, 58], [12, 0, 0, 5, 0], clamp);
 
   return (
     <AbsoluteFill style={{ backgroundColor: "#0e0a07" }}>
@@ -52,7 +54,7 @@ const Scene5Content: React.FC<{
               easing: [Easing.out(Easing.cubic), Easing.linear],
             }),
           ),
-          filter: `blur(${interpolate(frame, [0, 21], [12, 0], clamp)}px)`,
+          filter: `blur(${defocus}px)`,
         }}
       >
         <Img
@@ -114,6 +116,7 @@ const Scene5Content: React.FC<{
         <PendantLamp
           angle={pingpong(frame, 60) * 3}
           glow={lampOn}
+          bloom={1 + (1.4 * defocus) / 12}
           cord={360}
           style={{ left: 60, top: -20 }}
         />
@@ -131,10 +134,10 @@ const Scene5Content: React.FC<{
       </Caption>
 
       <NetflixIdent at={IDENT} />
-      <Caption at={IDENT + 30} size={100} style={{ left: 0, right: 0, top: 1360, textAlign: "center" }}>
+      <Caption at={IDENT + 30} size={100} style={{ left: 0, right: 0, top: 1290, textAlign: "center" }}>
         {identLine1}
       </Caption>
-      <Caption at={IDENT + 46} size={100} style={{ left: 0, right: 0, top: 1470, textAlign: "center" }}>
+      <Caption at={IDENT + 46} size={100} style={{ left: 0, right: 0, top: 1400, textAlign: "center" }}>
         {identLine2}
       </Caption>
     </AbsoluteFill>

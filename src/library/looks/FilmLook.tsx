@@ -44,11 +44,12 @@ export type FilmLayers = {
 };
 
 const GRAIN_PAD = 240;
+const CORNER_MASK = "radial-gradient(ellipse 80% 70% at 50% 48%, transparent 64%, black 100%)";
 
 /**
- * Wrap any scene so it reads like aged film: colour grade, gate weave, 12fps stop-motion
- * time, then scan lines, venetian blinds, grain, grunge, corner blur and a vignette on top.
- * Every layer has a toggle so it can be switched off per scene.
+ * Wrap any scene so it reads like aged film (lesson 01 spec): colour grade, gate weave, 12fps
+ * stop-motion time, a corner blur, then scan lines, venetian blinds, the grain/grunge texture
+ * sandwich and a vignette on top. Every layer has a toggle so it can be switched off per scene.
  */
 export const FilmLook: React.FC<
   FilmLayers & {
@@ -63,8 +64,7 @@ export const FilmLook: React.FC<
   grain = true,
   grunge = true,
   vignette = true,
-  // Off by default: Chrome's backdrop-filter mirrors edge pixels into the blurred corners.
-  cornerBlur = false,
+  cornerBlur = true,
   gateWeave = true,
   stopMotion = true,
 }) => {
@@ -76,6 +76,8 @@ export const FilmLook: React.FC<
   const grainY = Math.floor(random(`grain-y-${step}`) * GRAIN_PAD);
   const grungeFlip = random(`grunge-${Math.floor(step / 3)}`) > 0.5 ? -1 : 1;
 
+  const content = stopMotion ? <Freeze frame={posterizeFrame(frame, fps)}>{children}</Freeze> : children;
+
   return (
     <AbsoluteFill style={{ backgroundColor: "#000", overflow: "hidden" }}>
       <AbsoluteFill
@@ -85,23 +87,22 @@ export const FilmLook: React.FC<
           filter: `saturate(${grade.saturate}) contrast(${grade.contrast}) sepia(${grade.sepia}) brightness(${grade.brightness})`,
         }}
       >
-        {stopMotion ? (
-          <Freeze frame={posterizeFrame(frame, fps)}>{children}</Freeze>
-        ) : (
-          children
-        )}
+        {content}
+        {cornerBlur ? (
+          // A blurred copy of the frame, masked to the corners (backdrop-filter mirrors edge pixels
+          // in Chrome renders, so the frame is drawn twice instead).
+          <AbsoluteFill
+            style={{
+              filter: "blur(7px)",
+              scale: "1.02",
+              WebkitMaskImage: CORNER_MASK,
+              maskImage: CORNER_MASK,
+            }}
+          >
+            {content}
+          </AbsoluteFill>
+        ) : null}
       </AbsoluteFill>
-      {cornerBlur ? (
-        <AbsoluteFill
-          style={{
-            backdropFilter: "blur(6px)",
-            WebkitMaskImage:
-              "radial-gradient(ellipse 78% 68% at 50% 48%, transparent 62%, black 100%)",
-            maskImage:
-              "radial-gradient(ellipse 78% 68% at 50% 48%, transparent 62%, black 100%)",
-          }}
-        />
-      ) : null}
       {scanLines ? (
         <AbsoluteFill
           style={{
@@ -121,20 +122,24 @@ export const FilmLook: React.FC<
         />
       ) : null}
       {grain ? (
+        // Texture sandwich, part 1: the dark grain plate inverted (brightness 1.35, contrast
+        // 1.02) on multiply at 55%, shifted every 12fps step so the grain dances.
         <Img
-          src={staticFile("library/textures/grain.jpg")}
+          src={staticFile("library/textures/film-grain.jpg")}
           style={{
             position: "absolute",
             left: -grainX,
             top: -grainY,
             width: width + GRAIN_PAD,
             height: height + GRAIN_PAD,
-            mixBlendMode: "overlay",
+            filter: "invert(1) brightness(1.35) contrast(1.02)",
+            mixBlendMode: "multiply",
             opacity: 0.55,
           }}
         />
       ) : null}
       {grunge ? (
+        // Texture sandwich, part 2: grunge on colour-burn at 16%.
         <Img
           src={staticFile("library/textures/grunge.jpg")}
           style={{
@@ -143,8 +148,8 @@ export const FilmLook: React.FC<
             width,
             height,
             scale: `${grungeFlip} 1`,
-            mixBlendMode: "multiply",
-            opacity: 0.5,
+            mixBlendMode: "color-burn",
+            opacity: 0.16,
           }}
         />
       ) : null}

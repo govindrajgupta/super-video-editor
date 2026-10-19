@@ -29,7 +29,8 @@ export type PunchRig = {
 /**
  * Two flat plates sold as depth: the background pushes in gently while the character punches
  * in harder, both anchored to the same ground point. The cast shadow is the same cut-out,
- * painted black, squashed flat and skewed back along the ground behind them.
+ * painted black, flipped straight down from the feet and skewed (about -53°) so it lies along
+ * the ground, blurred 7px (lesson 01 spec).
  */
 export const GroundedPunch: React.FC<{ readonly rig: PunchRig; readonly children?: React.ReactNode }> = ({
   rig,
@@ -92,7 +93,7 @@ export const GroundedPunch: React.FC<{ readonly rig: PunchRig; readonly children
             position: "absolute",
             inset: 0,
             transformOrigin: "50% 100%",
-            transform: `scaleY(0.36) skewX(${rig.shadowSkew}deg)`,
+            transform: `scaleY(-1) skewX(${rig.shadowSkew}deg)`,
             opacity: rig.shadowOpacity,
           }}
         >

@@ -177,10 +177,10 @@ const Scene2Content: React.FC<{
         ))}
       </div>
 
-      <CaptionBox at={LAUGHED} style={{ left: 120, top: 1500 }}>
+      <CaptionBox at={LAUGHED} style={{ left: 120, top: 1300 }}>
         {word1}
       </CaptionBox>
-      <CaptionBox at={THEM_OUT} style={{ left: 520, top: 1620 }}>
+      <CaptionBox at={THEM_OUT} style={{ left: 520, top: 1410 }}>
         {word2}
       </CaptionBox>
     </AbsoluteFill>

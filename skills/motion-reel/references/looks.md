@@ -6,8 +6,10 @@ chapter on purpose (e.g. a dark chapter inside a light video). Code in `src/libr
 ## vintage-film (`FilmLook`)
 
 - **Use for:** history, business stories, "the rise and fall of…", documentaries, nostalgia.
-- **Surface:** whatever the scene builds (photos, paper, wood), then aged-film treatment on top:
-  scan lines, venetian blinds, grain, grunge, vignette, warm faded grade, gate weave.
+- **Surface:** whatever the scene builds (photos, paper, wood), then aged-film treatment on top,
+  exactly as lesson 01 specifies: scan lines (1.6px at 16% every 8px), venetian blinds, the texture
+  sandwich (dark `film-grain.jpg` inverted, brightness 1.35, multiply 55%; grunge on colour-burn 16%),
+  corner blur, vignette (92% x 82%, clear to 55%), warm faded grade, gate weave (~5px at 12fps, 1.012x).
 - **Motion:** everything steps at 12fps (stop-motion). `<FilmLook grade={SOMBRE_GRADE}>` for sad beats.
 - **Type:** serif italic captions (`serif`), condensed display (`display`) for numbers/headlines,
   marigold caption boxes (`CaptionBox`) for punch words.

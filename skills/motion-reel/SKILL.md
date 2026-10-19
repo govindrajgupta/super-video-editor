@@ -33,6 +33,11 @@ Start Remotion Studio (`npm run dev`) early and keep it open so the user can wat
 Read `references/looks.md` and pick one look per video (or one per chapter, deliberately).
 Each look fixes the palette, the type voices and the surface. Don't invent a fourth type voice.
 
+**Then read that look's lesson in full** (`references/lessons/`). Its rules and specs (exact values,
+frame timings, blend modes, layer order) are requirements, not inspiration. Before building each
+scene, list the rules that apply to it. If you must deviate (e.g. to fit the voiceover's timing),
+do it deliberately and record what and why in the lesson's "How our build differs" section.
+
 ## 3. Choose techniques
 
 Read `references/techniques.md`. Give every scene **one** signature move from the catalog and
@@ -65,6 +70,8 @@ the foreground** (the model needs ~1 GB and fails in background jobs). Never use
 
 ## 7. Check, render, deliver
 
+0. **Rules audit:** go through the look's lesson and `references/craft.md` line by line against the
+   built scenes (a table of rule, what was built, pass/fix). Fix every miss before rendering.
 1. `npx tsc --noEmit` and `npx eslint src`.
 2. `node tools/stills.mjs <Composition>=f1,f2,... --scale=0.3` then `tools/sheet.py` and look at
    every scene's key frames. Fix anything off before rendering.

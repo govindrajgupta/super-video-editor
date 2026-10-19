@@ -32,7 +32,7 @@ Import from the file named. "Lesson" says where it was learned.
 | `PopOutCard` | 3D card slides in; an object breaks out past its edge | `at`, `object{src,left,top,width}`, children = card text | 02 |
 | `PortalWindow` | Dark box cut into the wall with perspective walls, scene inside | `at`, `width`, `height`, `depth`, children | 02 |
 | `DropIn` | Object falls onto the floor with a bounce; shadow tightens | `at`, `src`, `width`, `left`, `floorY` | 02 |
-| `GroundedPunch` | Background pushes gently, character punches harder, both anchored at the feet; shadow is the cut-out painted black | `rig{background, character, height, feet, bgZoom, punchScale, shadowSkew, shift}` | 01 |
+| `GroundedPunch` | Background pushes gently, character punches harder, both anchored at the feet; shadow is the cut-out painted black, flipped down from the feet and skewed ~-53° | `rig{background, character, height, feet, bgZoom, punchScale, shadowSkew, shift}` | 01 |
 
 ## Editorial — `src/library/techniques/Editorial.tsx`
 

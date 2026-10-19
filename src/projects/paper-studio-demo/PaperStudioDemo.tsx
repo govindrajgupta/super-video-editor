@@ -203,6 +203,13 @@ const Word: React.FC = () => (
   </Whipped>
 );
 
+/** Lesson 02 rule: a near-empty beat before the payoff, so the payoff lands by contrast. */
+const ItsNot: React.FC = () => (
+  <PaperStudioLook>
+    <WordBuild text="it's not" at={2} gap={5} style={{ ...line, ...center, top: 900, fontSize: 92 }} />
+  </PaperStudioLook>
+);
+
 const Strategy: React.FC = () => (
   <PaperStudioLook>
     <Whip direction="left" inAt={0}>
@@ -220,10 +227,10 @@ const Strategy: React.FC = () => (
 );
 
 const s = (C: React.FC) => Interactive.create({ Component: C, layout: "absolute-fill" });
-const Scenes = [EverWonder, SomeReels, Stick, Magic, Neon, TvReveal, Kinetic, Attention, Portal, Word, Strategy].map(s);
+const Scenes = [EverWonder, SomeReels, Stick, Magic, Neon, TvReveal, Kinetic, Attention, Portal, Word, ItsNot, Strategy].map(s);
 
 export const PaperStudioDemo: React.FC = () => {
-  const [A, B, C, D, E, F, G, H, I, J, K] = Scenes;
+  const [A, B, C, D, E, F, G, H, I, J, K, L] = Scenes;
   return (
     <>
       <Track name="Scenes">
@@ -238,6 +245,7 @@ export const PaperStudioDemo: React.FC = () => {
         <I name={S[8].id} from={S[8].from} durationInFrames={S[8].durationInFrames} />
         <J name={S[9].id} from={S[9].from} durationInFrames={S[9].durationInFrames} />
         <K name={S[10].id} from={S[10].from} durationInFrames={S[10].durationInFrames} />
+        <L name={S[11].id} from={S[11].from} durationInFrames={S[11].durationInFrames} />
       </Track>
       <>
         <Audio name="Whip 1" src={staticFile("library/sfx/whoosh-quick.wav")} from={S[1].from - 6} volume={0.3} />
@@ -253,8 +261,8 @@ export const PaperStudioDemo: React.FC = () => {
         <Audio name="Eye pop" src={staticFile("library/sfx/pop.wav")} from={S[7].from + 10} volume={0.4} />
         <Audio name="Whip 5" src={staticFile("library/sfx/whoosh-quick.wav")} from={S[8].from - 6} volume={0.3} />
         <Audio name="Whip 6" src={staticFile("library/sfx/whoosh-quick.wav")} from={S[9].from - 6} volume={0.3} />
-        <Audio name="Whip 7" src={staticFile("library/sfx/whoosh-quick.wav")} from={S[10].from - 6} volume={0.3} />
-        <Audio name="Queen lands" src={staticFile("library/sfx/paper-slap.wav")} from={S[10].from + 30} volume={0.5} />
+        <Audio name="Whip 7" src={staticFile("library/sfx/whoosh-quick.wav")} from={S[11].from - 6} volume={0.3} />
+        <Audio name="Queen lands" src={staticFile("library/sfx/paper-slap.wav")} from={S[11].from + 30} volume={0.5} />
       </>
       <Audio name="Music" src={staticFile("projects/paper-studio-demo/music.wav")} volume={0.5} />
     </>

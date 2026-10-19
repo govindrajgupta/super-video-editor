@@ -142,13 +142,17 @@ export const Smoke: React.FC<{
   );
 };
 
-/** Hanging pendant lamp drawn in SVG, with a glow. Swings around its ceiling mount. */
+/**
+ * Hanging pendant lamp drawn in SVG, with a glow. Swings around its ceiling mount.
+ * `bloom` > 1 grows the hot core into a soft bokeh disc while the lens is out of focus.
+ */
 export const PendantLamp: React.FC<{
   readonly angle: number;
   readonly glow: number;
   readonly cord: number;
+  readonly bloom?: number;
   readonly style?: React.CSSProperties;
-}> = ({ angle, glow, cord, style }) => (
+}> = ({ angle, glow, cord, bloom = 1, style }) => (
   <div
     style={{
       position: "absolute",
@@ -171,6 +175,7 @@ export const PendantLamp: React.FC<{
         borderRadius: "50%",
         background: "radial-gradient(circle, rgba(255,214,140,0.6) 0%, rgba(255,190,110,0.25) 35%, rgba(255,180,90,0) 70%)",
         opacity: glow,
+        scale: String(1 + (bloom - 1) * 0.5),
       }}
     />
     {/* soft funnel of light falling from the shade */}
@@ -197,6 +202,7 @@ export const PendantLamp: React.FC<{
         borderRadius: "50%",
         background: "radial-gradient(circle, rgba(255,252,240,1) 0%, rgba(255,226,160,0.95) 16%, rgba(255,196,110,0.4) 42%, rgba(255,170,80,0) 70%)",
         opacity: glow,
+        scale: String(bloom),
       }}
     />
     <svg width={360} height={200} style={{ position: "absolute", left: 0, top: cord - 20 }}>

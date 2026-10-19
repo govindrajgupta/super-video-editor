@@ -46,7 +46,7 @@ const Scene4Content: React.FC<{
           background: `radial-gradient(ellipse 55% 35% at 78% 46%, rgba(0,0,0,0) 30%, rgba(0,0,0,${0.6 * focus}) 100%)`,
         }}
       />
-      <Caption at={4} fadeAt={40} size={84} style={{ left: 70, top: 200 }}>
+      <Caption at={4} fadeAt={40} size={84} style={{ left: 70, top: 240 }}>
         {lead}
       </Caption>
       <div style={{ position: "absolute", left: 60, top: 470, opacity: stackFade }}>

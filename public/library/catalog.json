@@ -848,6 +848,28 @@
     "added": "2026-10-18"
   },
   {
+    "file": "library/textures/film-grain.jpg",
+    "kind": "textures",
+    "size": [
+      1320,
+      2160
+    ],
+    "cutout": false,
+    "tags": [
+      "grain",
+      "film",
+      "dark",
+      "plate",
+      "multiply"
+    ],
+    "description": "Dark film-grain plate (light specks on black); invert + multiply for the vintage texture sandwich",
+    "source": "Generated",
+    "page": null,
+    "license": "Own work",
+    "author": null,
+    "added": "2026-10-19"
+  },
+  {
     "file": "library/textures/grain.jpg",
     "kind": "textures",
     "size": [

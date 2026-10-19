@@ -53,9 +53,12 @@ Write down, with timestamps:
 
 ## 3. Record the lesson
 
-Create `skills/motion-reel/references/lessons/NN-<name>.md` (next number), following the existing
-lessons: reference link and creator, date studied, style DNA, structure, a techniques table
-(move, timing seen, library component), and rules worth keeping. Credit the creator.
+Create `skills/motion-reel/references/lessons/NN-<name>.md` (next number), following lesson 01's
+depth: reference link and creator, date studied, the creator's rules (every one stated or shown),
+the exact specs (values, frame timings, blend modes, layer order, easing), a techniques table (move,
+timing seen, library component), the sound spec, and a "How our build differs" section. Write down
+everything the creator states or shows, not a summary: the lesson is what future videos are held to.
+Credit the creator.
 
 ## 4. Build it into the library
 
