@@ -1,4 +1,7 @@
-"""Turn the downloaded photos in assets-src/raw into the files the scenes use (public/assets).
+"""Recipe that built the Netflix project's library assets from assets-src/raw into public/library.
+
+For new assets, use tools/library.py (add, list, search) instead; this file is kept so those first
+assets can be rebuilt exactly.
 
 Run with the project venv:  .venv/Scripts/python tools/prepare_assets.py [step ...]
 Steps: cutouts, hq, clouds, backgrounds, logo, frame, textures (default: all).
@@ -12,26 +15,26 @@ from scipy import ndimage
 
 ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 RAW = os.path.join(ROOT, "assets-src", "raw")
-OUT = os.path.join(ROOT, "public", "assets")
+OUT = os.path.join(ROOT, "public", "library")
 
 # name in public/assets -> (source file, max height)
 CUTOUTS = {
-    "founder": ("founder.jpg", 2000),
-    "happy-founder": ("happy-founder-alt.jpg", 2400),
-    "sad-exec": ("sad-exec.jpg", 2400),
-    "boss": ("boss.jpg", 2400),
-    "cash-hand": ("cash-hand.jpg", 1400),
-    "cash-stacks": ("cash-stacks.jpg", 1600),
-    "exec-full": ("exec-full.jpg", 2400),
-    "founder-full": ("founder-full.jpg", 2400),
+    "people/founder": ("founder.jpg", 2000),
+    "people/happy-founder": ("happy-founder-alt.jpg", 2400),
+    "people/sad-exec": ("sad-exec.jpg", 2400),
+    "people/boss": ("boss.jpg", 2400),
+    "objects/cash-hand": ("cash-hand.jpg", 1400),
+    "objects/cash-stacks": ("cash-stacks.jpg", 1600),
+    "people/exec-full": ("exec-full.jpg", 2400),
+    "people/founder-full": ("founder-full.jpg", 2400),
 }
 
 BACKGROUNDS = {
-    "blockbuster-bg": ("blockbuster.jpg", None),
-    "library-bg": ("library.jpg", 2400),
-    "glass-tower-bg": ("glass-tower.jpg", 2400),
-    "wood-desk": ("wood-desk-alt.jpg", None),
-    "paper-wall": ("paper-wall.jpg", 2400),
+    "places/blockbuster-bg": ("blockbuster.jpg", None),
+    "places/library-bg": ("library.jpg", 2400),
+    "places/glass-tower-bg": ("glass-tower.jpg", 2400),
+    "surfaces/wood-desk": ("wood-desk-alt.jpg", None),
+    "surfaces/paper-wall": ("paper-wall.jpg", 2400),
 }
 
 
@@ -40,8 +43,8 @@ def raw(name):
 
 
 def save(im, name, **kw):
-    os.makedirs(OUT, exist_ok=True)
     path = os.path.join(OUT, name)
+    os.makedirs(os.path.dirname(path), exist_ok=True)
     im.save(path, **kw)
     print(f"  {name} {im.size}")
 
@@ -85,7 +88,7 @@ def hq():
     alpha = Image.fromarray(np.where(mask, 0, 255).astype(np.uint8)).filter(ImageFilter.GaussianBlur(1.2))
     out = im.convert("RGBA")
     out.putalpha(alpha)
-    save(out, "hq-building.png", optimize=True)
+    save(out, "places/hq-building.png", optimize=True)
 
 
 def clouds():
@@ -97,7 +100,7 @@ def clouds():
     whiteness = np.clip(whiteness * 1.6, 0, 1) ** 0.8
     rgba = np.dstack([a, whiteness]) * 255
     out = Image.fromarray(rgba.astype(np.uint8), "RGBA")
-    save(trim(out, pad=0), "clouds.png", optimize=True)
+    save(trim(out, pad=0), "objects/clouds.png", optimize=True)
 
 
 def backgrounds():
@@ -112,7 +115,7 @@ def logo():
     a = np.asarray(im).astype(np.float32)
     red = np.clip((a[..., 0] - a[..., 1]) / 120, 0, 1)
     rgba = np.dstack([np.full_like(a[..., 0], 229), np.full_like(a[..., 0], 9), np.full_like(a[..., 0], 20), red * 255])
-    save(trim(Image.fromarray(rgba.astype(np.uint8), "RGBA"), pad=2), "netflix-wordmark.png", optimize=True)
+    save(trim(Image.fromarray(rgba.astype(np.uint8), "RGBA"), pad=2), "logos/netflix-wordmark.png", optimize=True)
 
 
 def frame(outer=(1480, 2320), border=200):
@@ -152,7 +155,7 @@ def frame(outer=(1480, 2320), border=200):
     paste_poly(right, (w - b, 0), [(w, 0), (w, h), (w - b, h - b), (w - b, b)])
     paste_poly(top, (0, 0), [(0, 0), (w, 0), (w - b, b), (b, b)])
     paste_poly(bottom, (0, h - b), [(0, h), (b, h - b), (w - b, h - b), (w, h)])
-    save(canvas, "gold-frame.png", optimize=True)
+    save(canvas, "objects/gold-frame.png", optimize=True)
 
 
 def textures(size=(1080, 1920), seed=7):
@@ -160,7 +163,7 @@ def textures(size=(1080, 1920), seed=7):
     w, h = size
     grain = rng.normal(128, 38, (h, w))
     grain = ndimage.gaussian_filter(grain, 0.6)
-    save(Image.fromarray(np.clip(grain, 0, 255).astype(np.uint8)), "grain.jpg", quality=88)
+    save(Image.fromarray(np.clip(grain, 0, 255).astype(np.uint8)), "textures/grain.jpg", quality=88)
 
     # Grunge: stacked blotchy noise, dust specks and a few vertical scratches.
     g = np.zeros((h, w))
@@ -178,7 +181,7 @@ def textures(size=(1080, 1920), seed=7):
         x = rng.integers(0, w)
         y0, y1 = sorted(rng.integers(0, h, 2))
         g[y0:y1, x:x + 1] *= 0.6
-    save(Image.fromarray((g * 255).astype(np.uint8)), "grunge.jpg", quality=88)
+    save(Image.fromarray((g * 255).astype(np.uint8)), "textures/grunge.jpg", quality=88)
 
 
 STEPS = {

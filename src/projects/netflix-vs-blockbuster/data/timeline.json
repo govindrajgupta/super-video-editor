@@ -1,0 +1,12 @@
+{
+  "fps": 30,
+  "durationInFrames": 1057,
+  "scenes": [
+    { "id": "Scene1Opener", "from": 0, "durationInFrames": 183, "mood": "underdog", "vo": "projects/netflix-vs-blockbuster/vo-1.wav" },
+    { "id": "Scene2Rejection", "from": 183, "durationInFrames": 150, "mood": "tension", "vo": "projects/netflix-vs-blockbuster/vo-2.wav" },
+    { "id": "Scene3Opposite", "from": 333, "durationInFrames": 171, "mood": "lift", "vo": "projects/netflix-vs-blockbuster/vo-3.wav" },
+    { "id": "Scene4Fall", "from": 504, "durationInFrames": 195, "mood": "sombre", "vo": "projects/netflix-vs-blockbuster/vo-4.wav" },
+    { "id": "Scene5Payoff", "from": 699, "durationInFrames": 228, "mood": "triumph", "vo": "projects/netflix-vs-blockbuster/vo-5.wav" },
+    { "id": "Scene6No", "from": 927, "durationInFrames": 130, "mood": "resolve", "vo": "projects/netflix-vs-blockbuster/vo-6.wav" }
+  ]
+}

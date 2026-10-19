@@ -1,0 +1,12 @@
+{
+  "name": "super-video-editor",
+  "owner": { "name": "Govind Raj Gupta" },
+  "description": "Motion-graphics reels with Remotion and Claude Code: a growing library of looks, techniques and assets.",
+  "plugins": [
+    {
+      "name": "super-video-editor",
+      "source": "./",
+      "description": "Professional motion-graphics reels with Remotion: looks, techniques, assets, and a learning loop."
+    }
+  ]
+}

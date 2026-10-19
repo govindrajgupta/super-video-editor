@@ -1,11 +1,15 @@
 import { Composition, Folder } from "remotion";
-import { NetflixReel } from "./NetflixReel";
-import { Scene1Opener } from "./scenes/Scene1Opener";
-import { Scene2Rejection } from "./scenes/Scene2Rejection";
-import { Scene3Opposite } from "./scenes/Scene3Opposite";
-import { Scene4Fall } from "./scenes/Scene4Fall";
-import { Scene5Payoff } from "./scenes/Scene5Payoff";
-import { Scene6No } from "./scenes/Scene6No";
+import { EditorialPosterDemo } from "./projects/editorial-poster-demo/EditorialPosterDemo";
+import editorialTimeline from "./projects/editorial-poster-demo/data/timeline.json";
+import { NetflixReel } from "./projects/netflix-vs-blockbuster/NetflixReel";
+import { PaperStudioDemo } from "./projects/paper-studio-demo/PaperStudioDemo";
+import paperTimeline from "./projects/paper-studio-demo/data/timeline.json";
+import { Scene1Opener } from "./projects/netflix-vs-blockbuster/scenes/Scene1Opener";
+import { Scene2Rejection } from "./projects/netflix-vs-blockbuster/scenes/Scene2Rejection";
+import { Scene3Opposite } from "./projects/netflix-vs-blockbuster/scenes/Scene3Opposite";
+import { Scene4Fall } from "./projects/netflix-vs-blockbuster/scenes/Scene4Fall";
+import { Scene5Payoff } from "./projects/netflix-vs-blockbuster/scenes/Scene5Payoff";
+import { Scene6No } from "./projects/netflix-vs-blockbuster/scenes/Scene6No";
 
 export const RemotionRoot: React.FC = () => {
   return (
@@ -18,7 +22,23 @@ export const RemotionRoot: React.FC = () => {
         fps={30}
         durationInFrames={1057}
       />
-      <Folder name="Scenes">
+      <Composition
+        id="PaperStudioDemo"
+        component={PaperStudioDemo}
+        width={1080}
+        height={1920}
+        fps={30}
+        durationInFrames={paperTimeline.durationInFrames}
+      />
+      <Composition
+        id="EditorialPosterDemo"
+        component={EditorialPosterDemo}
+        width={1080}
+        height={1920}
+        fps={30}
+        durationInFrames={editorialTimeline.durationInFrames}
+      />
+      <Folder name="NetflixScenes">
         <Composition
           id="Scene1Opener"
           component={Scene1Opener}

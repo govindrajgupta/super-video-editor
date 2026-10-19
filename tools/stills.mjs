@@ -3,7 +3,15 @@
 // Writes out/stills/<compositionId>-<frame>.jpg
 import { bundle } from "@remotion/bundler";
 import { renderStill, selectComposition } from "@remotion/renderer";
+import fs from "node:fs";
 import path from "node:path";
+
+// Keep Remotion's temp bundles on the project's drive, not C:.
+const tmp = path.resolve(".tmp");
+fs.mkdirSync(tmp, { recursive: true });
+process.env.TEMP = tmp;
+process.env.TMP = tmp;
+process.env.TMPDIR = tmp;
 
 const args = process.argv.slice(2);
 const scaleArg = args.find((a) => a.startsWith("--scale="));

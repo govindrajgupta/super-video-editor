@@ -1,0 +1,51 @@
+{
+  "fps": 30,
+  "durationInFrames": 511,
+  "scenes": [
+    {
+      "id": "scene-1",
+      "from": 0,
+      "durationInFrames": 82,
+      "voAt": 6,
+      "voFrames": 62,
+      "mood": "underdog",
+      "vo": "projects/editorial-poster-demo/vo-1.wav"
+    },
+    {
+      "id": "scene-2",
+      "from": 82,
+      "durationInFrames": 137,
+      "voAt": 88,
+      "voFrames": 117,
+      "mood": "lift",
+      "vo": "projects/editorial-poster-demo/vo-2.wav"
+    },
+    {
+      "id": "scene-3",
+      "from": 219,
+      "durationInFrames": 84,
+      "voAt": 225,
+      "voFrames": 64,
+      "mood": "pulse",
+      "vo": "projects/editorial-poster-demo/vo-3.wav"
+    },
+    {
+      "id": "scene-4",
+      "from": 303,
+      "durationInFrames": 85,
+      "voAt": 309,
+      "voFrames": 65,
+      "mood": "dark",
+      "vo": "projects/editorial-poster-demo/vo-4.wav"
+    },
+    {
+      "id": "scene-5",
+      "from": 388,
+      "durationInFrames": 123,
+      "voAt": 394,
+      "voFrames": 57,
+      "mood": "resolve",
+      "vo": "projects/editorial-poster-demo/vo-5.wav"
+    }
+  ]
+}

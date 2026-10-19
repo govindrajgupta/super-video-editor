@@ -11,3 +11,4 @@ out
 tools/models
 assets-src/
 __pycache__
+.tmp

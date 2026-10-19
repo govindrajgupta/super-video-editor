@@ -1,0 +1,17 @@
+{
+  "fps": 30,
+  "durationInFrames": 714,
+  "scenes": [
+    { "id": "1 Ever wonder", "from": 0, "durationInFrames": 48, "mood": "pulse" },
+    { "id": "2 Some reels", "from": 48, "durationInFrames": 48, "mood": "pulse" },
+    { "id": "3 Stick", "from": 96, "durationInFrames": 54, "mood": "pulse" },
+    { "id": "4 Magic", "from": 150, "durationInFrames": 60, "mood": "dark" },
+    { "id": "5 Neon", "from": 210, "durationInFrames": 54, "mood": "dark" },
+    { "id": "6 TV", "from": 264, "durationInFrames": 66, "mood": "pulse" },
+    { "id": "7 Kinetic", "from": 330, "durationInFrames": 60, "mood": "pulse" },
+    { "id": "8 Attention", "from": 390, "durationInFrames": 78, "mood": "pulse" },
+    { "id": "9 Portal", "from": 468, "durationInFrames": 84, "mood": "pulse" },
+    { "id": "10 Word", "from": 552, "durationInFrames": 66, "mood": "pulse" },
+    { "id": "11 Strategy", "from": 618, "durationInFrames": 96, "mood": "resolve" }
+  ]
+}

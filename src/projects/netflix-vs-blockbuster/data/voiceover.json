@@ -1,0 +1,42 @@
+{
+  "voice": "am_michael",
+  "speed": 1.0,
+  "lines": [
+    {
+      "scene": 1,
+      "file": "projects/netflix-vs-blockbuster/vo-1.wav",
+      "seconds": 5.596,
+      "text": "In two thousand, a tiny startup called Netflix offered to sell itself to Blockbuster."
+    },
+    {
+      "scene": 2,
+      "file": "projects/netflix-vs-blockbuster/vo-2.wav",
+      "seconds": 4.408,
+      "text": "The price? Fifty million dollars. Blockbuster laughed them out of the room."
+    },
+    {
+      "scene": 3,
+      "file": "projects/netflix-vs-blockbuster/vo-3.wav",
+      "seconds": 5.176,
+      "text": "So Netflix built the opposite. No late fees. No stores. Customers first."
+    },
+    {
+      "scene": 4,
+      "file": "projects/netflix-vs-blockbuster/vo-4.wav",
+      "seconds": 6.008,
+      "text": "Ten years later, Blockbuster was closing stores by the thousand, and filed for bankruptcy."
+    },
+    {
+      "scene": 5,
+      "file": "projects/netflix-vs-blockbuster/vo-5.wav",
+      "seconds": 7.19,
+      "text": "Today, Netflix brings in over forty-five billion dollars a year. The biggest paid streaming service on Earth."
+    },
+    {
+      "scene": 6,
+      "file": "projects/netflix-vs-blockbuster/vo-6.wav",
+      "seconds": 3.108,
+      "text": "That was the most expensive \"no\" in business history."
+    }
+  ]
+}

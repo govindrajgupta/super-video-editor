@@ -1,0 +1,36 @@
+{
+  "voice": "af_heart",
+  "speed": 1.0,
+  "lines": [
+    {
+      "scene": 1,
+      "file": "projects/editorial-poster-demo/vo-1.wav",
+      "seconds": 2.057,
+      "text": "You know what makes a reel feel premium?"
+    },
+    {
+      "scene": 2,
+      "file": "projects/editorial-poster-demo/vo-2.wav",
+      "seconds": 3.888,
+      "text": "It's the moment an editor opens the timeline, and everything clicks."
+    },
+    {
+      "scene": 3,
+      "file": "projects/editorial-poster-demo/vo-3.wav",
+      "seconds": 2.133,
+      "text": "Messy clips suddenly start making sense."
+    },
+    {
+      "scene": 4,
+      "file": "projects/editorial-poster-demo/vo-4.wav",
+      "seconds": 2.16,
+      "text": "And the feeling flows, without forcing it."
+    },
+    {
+      "scene": 5,
+      "file": "projects/editorial-poster-demo/vo-5.wav",
+      "seconds": 1.876,
+      "text": "Comment reel, for the project file."
+    }
+  ]
+}

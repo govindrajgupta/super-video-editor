@@ -1,0 +1,9 @@
+{
+  "name": "super-video-editor",
+  "version": "0.2.0",
+  "description": "Professional motion-graphics reels with Remotion: a growing library of looks, techniques and assets, the workflow to use them, and a way to learn new styles from reference videos.",
+  "author": { "name": "Govind Raj Gupta" },
+  "homepage": "https://github.com/govindrajgupta/super-video-editor",
+  "repository": "https://github.com/govindrajgupta/super-video-editor",
+  "keywords": ["remotion", "motion-graphics", "video", "reels", "shorts", "animation"]
+}

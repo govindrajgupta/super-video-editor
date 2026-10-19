@@ -1,8 +1,11 @@
-"""Synthesize the reel's sound effects and music bed locally (no samples, no API).
+"""Synthesize sound effects and music beds locally (no samples, no API).
 
-Run:  .venv/Scripts/python tools/sound.py
-Writes public/audio/sfx/*.wav and public/audio/music.wav.
-The music sections follow the scene starts in src/data/timeline.json.
+Run:
+  .venv/Scripts/python tools/sound.py sfx            -> public/library/sfx/*.wav (shared)
+  .venv/Scripts/python tools/sound.py music <slug>   -> public/projects/<slug>/music.wav
+
+The music follows src/projects/<slug>/data/timeline.json: one section per scene, shaped by the
+scene's "mood" (underdog, tension, lift, sombre, triumph, resolve, pulse, dark).
 """
 import json
 import os
@@ -13,8 +16,7 @@ from scipy import signal
 
 SR = 44100
 ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
-AUDIO = os.path.join(ROOT, "public", "audio")
-SFX = os.path.join(AUDIO, "sfx")
+SFX = os.path.join(ROOT, "public", "library", "sfx")
 rng = np.random.default_rng(11)
 
 
@@ -332,81 +334,152 @@ def place(buf, x, at):
     buf[i:i + n] += x[:n]
 
 
-def make_music():
-    with open(os.path.join(ROOT, "src", "data", "timeline.json"), encoding="utf-8") as f:
+BEAT = 60 / 100  # 100 bpm
+
+
+def chord(name, octave_shift=0):
+    return [hz(n, o + octave_shift) for n, o in CHORDS[name]]
+
+
+def section_underdog(mus, drums, a, b):
+    place(mus, pad(chord("Am"), b - a + 0.6, 900, 1.2) * 0.5, a)
+    for k, (n, o) in enumerate([("A", 4), ("E", 4), ("C", 5), ("B", 4), ("A", 4), ("E", 4)]):
+        if a + 0.4 + k * BEAT * 1.5 < b:
+            place(mus, pluck(hz(n, o)) * 0.25, a + 0.4 + k * BEAT * 1.5)
+
+
+def section_tension(mus, drums, a, b):
+    t = a
+    while t < b - 0.05:
+        place(mus, pluck(hz("A", 1), 0.4, 0.25) * 0.5, t)
+        place(drums, hat() * 0.35, t + BEAT / 4)
+        t += BEAT / 2
+    place(mus, pad(chord("E"), b - a + 0.4, 700, 0.8) * 0.35, a)
+
+
+def section_lift(mus, drums, a, b):
+    prog = ["F", "G", "Am", "C"]
+    span = (b - a) / len(prog)
+    for k, c in enumerate(prog):
+        place(mus, pad(chord(c), span + 0.4, 1500, 0.15) * 0.4, a + k * span)
+        for j, f in enumerate(chord(c, 1)):
+            place(mus, pluck(f, 0.8) * 0.18, a + k * span + j * span / 4)
+    t = a
+    while t < b - 0.05:
+        place(drums, kick() * 0.7, t)
+        t += BEAT
+
+
+def section_sombre(mus, drums, a, b):
+    half = (b - a) / 2
+    place(mus, pad(chord("Dm"), half + 0.6, 700, 0.8) * 0.45, a)
+    place(mus, pad(chord("Am"), half + 0.8, 600, 0.8) * 0.45, a + half)
+    place(mus, pad([hz("A", 1)], b - a, 300, 1.0) * 0.4, a)
+
+
+def section_triumph(mus, drums, a, b):
+    prog = ["C", "G", "Am", "F"]
+    span = (b - a) / len(prog)
+    for k, c in enumerate(prog):
+        place(mus, pad(chord(c), span + 0.4, 2600, 0.05) * 0.5, a + k * span)
+        place(mus, pluck(hz(CHORDS[c][0][0], 1), span, 0.8) * 0.7, a + k * span)
+    t, n = a, 0
+    while t < b - 0.05:
+        place(drums, kick() * 0.8, t)
+        if n % 2 == 1:
+            place(drums, snare() * 0.55, t)
+        place(drums, hat() * 0.3, t + BEAT / 2)
+        t += BEAT
+        n += 1
+
+
+def section_resolve(mus, drums, a, b):
+    place(mus, pad(chord("C") + [hz("E", 4), hz("G", 4)], b - a + 2.5, 2000, 0.05) * 0.55, a)
+    place(mus, pluck(hz("C", 2), 3.0, 1.4) * 0.8, a)
+    place(drums, kick() * 0.8, a)
+
+
+def section_pulse(mus, drums, a, b):
+    """Modern promo groove: four-on-the-floor, off-beat hats, plucky minor arps."""
+    prog = ["Am", "F", "C", "G"]
+    span = (b - a) / len(prog)
+    for k, c in enumerate(prog):
+        place(mus, pad(chord(c), span + 0.3, 1800, 0.02) * 0.32, a + k * span)
+        step, t = BEAT / 4, a + k * span
+        notes = chord(c, 1)
+        i = 0
+        while t < a + (k + 1) * span - 0.02:
+            place(mus, pluck(notes[i % len(notes)], 0.35, 0.18) * 0.16, t)
+            t += step
+            i += 1
+    t, n = a, 0
+    while t < b - 0.05:
+        place(drums, kick() * 0.85, t)
+        place(drums, hat() * 0.32, t + BEAT / 2)
+        if n % 2 == 1:
+            place(drums, snare() * 0.4, t)
+        t += BEAT
+        n += 1
+
+
+def section_dark(mus, drums, a, b):
+    """Low, wide and serious: sub drone, minor pad, a slow heartbeat kick."""
+    place(mus, pad([hz("D", 1), hz("A", 1)], b - a + 0.8, 260, 0.6) * 0.5, a)
+    place(mus, pad(chord("Dm"), b - a + 0.8, 900, 1.0) * 0.3, a)
+    t = a
+    while t < b - 0.05:
+        place(drums, kick() * 0.6, t)
+        place(drums, kick() * 0.35, t + 0.22)
+        t += BEAT * 2
+
+
+SECTIONS = {
+    "underdog": section_underdog,
+    "tension": section_tension,
+    "lift": section_lift,
+    "sombre": section_sombre,
+    "triumph": section_triumph,
+    "resolve": section_resolve,
+    "pulse": section_pulse,
+    "dark": section_dark,
+}
+
+
+def make_music(slug):
+    path = os.path.join(ROOT, "src", "projects", slug, "data", "timeline.json")
+    with open(path, encoding="utf-8") as f:
         timeline = json.load(f)
     fps = timeline["fps"]
-    starts = [s["from"] / fps for s in timeline["scenes"]]
-    total = timeline["durationInFrames"] / fps + 2.5
-    beat = 60 / 100  # 100 bpm
+    end = timeline["durationInFrames"] / fps
+    total = end + 2.5
     mus = np.zeros(int(total * SR))
     drums = np.zeros_like(mus)
-
-    s1, s2, s3, s4, s5, s6 = starts
-    end = total - 2.5
-
-    # 1 - underdog intro: soft Am pad with sparse plucks.
-    place(mus, pad([hz(n, o) for n, o in CHORDS["Am"]], s2 - s1 + 0.6, 900, 1.2) * 0.5, s1)
-    for k, (n, o) in enumerate([("A", 4), ("E", 4), ("C", 5), ("B", 4), ("A", 4), ("E", 4)]):
-        place(mus, pluck(hz(n, o)) * 0.25, s1 + 0.4 + k * beat * 1.5)
-
-    # 2 - tension: pulsing low A eighths and ticking hats.
-    t = s2
-    while t < s3 - 0.05:
-        place(mus, pluck(hz("A", 1), 0.4, 0.25) * 0.5, t)
-        place(drums, hat() * 0.35, t + beat / 4)
-        t += beat / 2
-    place(mus, pad([hz(n, o) for n, o in CHORDS["E"]], s3 - s2 + 0.4, 700, 0.8) * 0.35, s2)
-
-    # 3 - the turn: rising progression with plucks and a steady kick.
-    prog = ["F", "G", "Am", "C"]
-    span = (s4 - s3) / len(prog)
-    for k, c in enumerate(prog):
-        place(mus, pad([hz(n, o) for n, o in CHORDS[c]], span + 0.4, 1500, 0.15) * 0.4, s3 + k * span)
-        for j, (n, o) in enumerate(CHORDS[c]):
-            place(mus, pluck(hz(n, o + 1), 0.8) * 0.18, s3 + k * span + j * span / 4)
-    t = s3
-    while t < s4 - 0.05:
-        place(drums, kick() * 0.7, t)
-        t += beat
-
-    # 4 - the fall: sombre Dm -> Am, no drums, low drone.
-    half = (s5 - s4) / 2
-    place(mus, pad([hz(n, o) for n, o in CHORDS["Dm"]], half + 0.6, 700, 0.8) * 0.45, s4)
-    place(mus, pad([hz(n, o) for n, o in CHORDS["Am"]], half + 0.8, 600, 0.8) * 0.45, s4 + half)
-    place(mus, pad([hz("A", 1)], s5 - s4, 300, 1.0) * 0.4, s4)
-
-    # 5 - payoff: triumphant C G Am F with full drums and bass.
-    prog = ["C", "G", "Am", "F"]
-    span = (s6 - s5) / len(prog)
-    for k, c in enumerate(prog):
-        notes = CHORDS[c]
-        place(mus, pad([hz(n, o) for n, o in notes], span + 0.4, 2600, 0.05) * 0.5, s5 + k * span)
-        place(mus, pluck(hz(notes[0][0], 1), span, 0.8) * 0.7, s5 + k * span)
-    t, b = s5, 0
-    while t < s6 - 0.05:
-        place(drums, kick() * 0.8, t)
-        if b % 2 == 1:
-            place(drums, snare() * 0.55, t)
-        place(drums, hat() * 0.3, t + beat / 2)
-        t += beat
-        b += 1
-
-    # 6 - resolve: one big C major chord ringing out.
-    place(mus, pad([hz(n, o) for n, o in CHORDS["C"]] + [hz("E", 4), hz("G", 4)], end - s6 + 2.5, 2000, 0.05) * 0.55, s6)
-    place(mus, pluck(hz("C", 2), 3.0, 1.4) * 0.8, s6)
-    place(drums, kick() * 0.8, s6)
+    scenes = timeline["scenes"]
+    for i, scene in enumerate(scenes):
+        a = scene["from"] / fps
+        b = scenes[i + 1]["from"] / fps if i + 1 < len(scenes) else end
+        mood = scene.get("mood", "pulse")
+        if mood not in SECTIONS:
+            raise SystemExit(f"Unknown mood '{mood}' in scene {scene['id']}. Use one of: {', '.join(SECTIONS)}")
+        SECTIONS[mood](mus, drums, a, b)
 
     mix = reverb(mus, 2.2, 0.3, seed=4)[: len(mus)] + stereo(drums, 0.0) * 0.8
     mix = mix / np.max(np.abs(mix)) * 0.85
     fade = int(2.0 * SR)
     mix[-fade:] *= np.linspace(1, 0, fade)[:, None]
-    sf.write(os.path.join(AUDIO, "music.wav"), mix.astype(np.float32), SR)
-    print(f"  music.wav {len(mix) / SR:.1f}s")
+    out_dir = os.path.join(ROOT, "public", "projects", slug)
+    os.makedirs(out_dir, exist_ok=True)
+    sf.write(os.path.join(out_dir, "music.wav"), mix.astype(np.float32), SR)
+    print(f"  projects/{slug}/music.wav {len(mix) / SR:.1f}s")
 
 
 if __name__ == "__main__":
-    print("sfx")
-    make_sfx()
-    print("music")
-    make_music()
+    import sys
+
+    cmd = sys.argv[1] if len(sys.argv) > 1 else ""
+    if cmd == "sfx":
+        make_sfx()
+    elif cmd == "music" and len(sys.argv) > 2:
+        make_music(sys.argv[2])
+    else:
+        raise SystemExit("Usage: sound.py sfx | sound.py music <project-slug>")

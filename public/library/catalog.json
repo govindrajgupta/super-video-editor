@@ -1,0 +1,892 @@
+[
+  {
+    "file": "library/logos/netflix-wordmark.png",
+    "kind": "logos",
+    "size": [
+      1432,
+      388
+    ],
+    "cutout": true,
+    "tags": [
+      "netflix",
+      "logo",
+      "wordmark",
+      "red"
+    ],
+    "description": "Netflix wordmark, red on transparent",
+    "source": "Wikimedia Commons",
+    "page": "https://commons.wikimedia.org/wiki/File:Netflix_Logomark.png",
+    "license": "Public domain (trademark)",
+    "author": "Netflix",
+    "added": "2026-10-18"
+  },
+  {
+    "file": "library/objects/brain.png",
+    "kind": "objects",
+    "size": [
+      797,
+      632
+    ],
+    "cutout": true,
+    "tags": [
+      "brain",
+      "mind",
+      "model",
+      "anatomy",
+      "pink"
+    ],
+    "description": "Pink anatomical brain model",
+    "source": "Unsplash",
+    "page": "https://images.unsplash.com/photo-1644648479153-2a3dbee76212",
+    "license": "Unsplash License",
+    "author": null,
+    "added": "2026-10-19"
+  },
+  {
+    "file": "library/objects/cash-hand.png",
+    "kind": "objects",
+    "size": [
+      1368,
+      1069
+    ],
+    "cutout": true,
+    "tags": [
+      "hand",
+      "money",
+      "cash",
+      "dollar",
+      "bill"
+    ],
+    "description": "Hand holding a folded twenty-dollar bill",
+    "source": "Unsplash",
+    "page": "https://images.unsplash.com/photo-1771736007081-b1f2fadc5dfd",
+    "license": "Unsplash License",
+    "author": null,
+    "added": "2026-10-18"
+  },
+  {
+    "file": "library/objects/cash-stacks.png",
+    "kind": "objects",
+    "size": [
+      1023,
+      524
+    ],
+    "cutout": true,
+    "tags": [
+      "money",
+      "cash",
+      "dollar",
+      "stacks",
+      "hundred"
+    ],
+    "description": "Two banded stacks of hundred-dollar bills",
+    "source": "Unsplash",
+    "page": "https://images.unsplash.com/photo-1579240637470-e029acf584a9",
+    "license": "Unsplash License",
+    "author": null,
+    "added": "2026-10-18"
+  },
+  {
+    "file": "library/objects/chess-queen.png",
+    "kind": "objects",
+    "size": [
+      525,
+      1597
+    ],
+    "cutout": true,
+    "tags": [
+      "chess",
+      "queen",
+      "strategy",
+      "black",
+      "piece"
+    ],
+    "description": "Black chess queen with a white orb",
+    "source": "Unsplash",
+    "page": "https://images.unsplash.com/photo-1763461092888-4f69d1ebc492",
+    "license": "Unsplash License",
+    "author": null,
+    "added": "2026-10-19"
+  },
+  {
+    "file": "library/objects/clapperboard.png",
+    "kind": "objects",
+    "size": [
+      755,
+      1123
+    ],
+    "cutout": true,
+    "tags": [
+      "clapperboard",
+      "film",
+      "movie",
+      "slate",
+      "cinema"
+    ],
+    "description": "Film clapperboard",
+    "source": "Unsplash",
+    "page": "https://images.unsplash.com/photo-1619518594466-5bfc2dcbb83d",
+    "license": "Unsplash License",
+    "author": null,
+    "added": "2026-10-19"
+  },
+  {
+    "file": "library/objects/clouds.png",
+    "kind": "objects",
+    "size": [
+      2000,
+      997
+    ],
+    "cutout": true,
+    "tags": [
+      "clouds",
+      "sky",
+      "cumulus"
+    ],
+    "description": "White cumulus clouds keyed onto transparency",
+    "source": "Unsplash",
+    "page": "https://images.unsplash.com/photo-1603437873662-dc1f44901825",
+    "license": "Unsplash License",
+    "author": null,
+    "added": "2026-10-18"
+  },
+  {
+    "file": "library/objects/eyeball.png",
+    "kind": "objects",
+    "size": [
+      906,
+      904
+    ],
+    "cutout": true,
+    "tags": [
+      "eye",
+      "eyeball",
+      "attention",
+      "iris"
+    ],
+    "description": "Realistic eyeball, iris facing camera",
+    "source": "Unsplash",
+    "page": "https://images.unsplash.com/photo-1635357011749-f315642e735f",
+    "license": "Unsplash License",
+    "author": null,
+    "added": "2026-10-19"
+  },
+  {
+    "file": "library/objects/gold-frame.png",
+    "kind": "objects",
+    "size": [
+      1480,
+      2320
+    ],
+    "cutout": true,
+    "tags": [
+      "frame",
+      "gold",
+      "gilt",
+      "museum",
+      "picture-frame"
+    ],
+    "description": "Mitred gilt picture frame with a 1080x1920 opening",
+    "source": "Unsplash (moulding)",
+    "page": "https://images.unsplash.com/photo-1653854793537-d3b73e5b6d07",
+    "license": "Unsplash License",
+    "author": null,
+    "added": "2026-10-18"
+  },
+  {
+    "file": "library/objects/headphones.png",
+    "kind": "objects",
+    "size": [
+      692,
+      1071
+    ],
+    "cutout": true,
+    "tags": [
+      "headphones",
+      "audio",
+      "music",
+      "sound",
+      "black"
+    ],
+    "description": "Black over-ear headphones",
+    "source": "Unsplash",
+    "page": "https://images.unsplash.com/photo-1641048930621-ab5d225ae5b0",
+    "license": "Unsplash License",
+    "author": null,
+    "added": "2026-10-19"
+  },
+  {
+    "file": "library/objects/polaroid-camera.png",
+    "kind": "objects",
+    "size": [
+      1329,
+      970
+    ],
+    "cutout": true,
+    "tags": [
+      "camera",
+      "polaroid",
+      "instant",
+      "photo"
+    ],
+    "description": "Black and silver Polaroid camera",
+    "source": "Unsplash",
+    "page": "https://images.unsplash.com/photo-1614707484302-4e1638af021f",
+    "license": "Unsplash License",
+    "author": null,
+    "added": "2026-10-19"
+  },
+  {
+    "file": "library/objects/retro-tv.png",
+    "kind": "objects",
+    "size": [
+      404,
+      648
+    ],
+    "cutout": true,
+    "tags": [
+      "tv",
+      "television",
+      "retro",
+      "vintage",
+      "screen",
+      "legs"
+    ],
+    "description": "Retro TV on wooden legs",
+    "source": "Unsplash",
+    "page": "https://images.unsplash.com/photo-1509281373149-e957c6296406",
+    "license": "Unsplash License",
+    "author": null,
+    "added": "2026-10-19"
+  },
+  {
+    "file": "library/objects/smartphone.png",
+    "kind": "objects",
+    "size": [
+      598,
+      1210
+    ],
+    "cutout": true,
+    "tags": [
+      "phone",
+      "smartphone",
+      "mockup",
+      "screen",
+      "mobile"
+    ],
+    "description": "Smartphone mockup, front view",
+    "source": "Unsplash",
+    "page": "https://images.unsplash.com/photo-1740721610016-ce8577141b78",
+    "license": "Unsplash License",
+    "author": null,
+    "added": "2026-10-19"
+  },
+  {
+    "file": "library/people/boss.png",
+    "kind": "people",
+    "size": [
+      1326,
+      2225
+    ],
+    "cutout": true,
+    "tags": [
+      "man",
+      "boss",
+      "cigar",
+      "sunglasses",
+      "flat-cap",
+      "tweed",
+      "arrogant"
+    ],
+    "description": "Man in a flat cap and round sunglasses smoking a cigar, waist-up",
+    "source": "Unsplash",
+    "page": "https://images.unsplash.com/photo-1580880783109-6746c2199006",
+    "license": "Unsplash License",
+    "author": null,
+    "added": "2026-10-18"
+  },
+  {
+    "file": "library/people/david-bust.png",
+    "kind": "people",
+    "size": [
+      1012,
+      1403
+    ],
+    "cutout": true,
+    "tags": [
+      "statue",
+      "bust",
+      "marble",
+      "david",
+      "classical",
+      "sculpture"
+    ],
+    "description": "Marble statue head and shoulders (Michelangelo's David), looking aside",
+    "source": "Unsplash",
+    "page": "https://images.unsplash.com/photo-1601887389937-0b02c26b602c",
+    "license": "Unsplash License",
+    "author": null,
+    "added": "2026-10-19"
+  },
+  {
+    "file": "library/people/exec-full.png",
+    "kind": "people",
+    "size": [
+      874,
+      2096
+    ],
+    "cutout": true,
+    "tags": [
+      "man",
+      "executive",
+      "black-suit",
+      "three-piece",
+      "full-body",
+      "shoes"
+    ],
+    "description": "Stern man in a black three-piece suit, full length",
+    "source": "Unsplash",
+    "page": "https://images.unsplash.com/photo-1789141578724-d4cc015247e9",
+    "license": "Unsplash License",
+    "author": null,
+    "added": "2026-10-18"
+  },
+  {
+    "file": "library/people/founder-full.png",
+    "kind": "people",
+    "size": [
+      621,
+      2070
+    ],
+    "cutout": true,
+    "tags": [
+      "man",
+      "businessman",
+      "navy-suit",
+      "full-body",
+      "shoes",
+      "young"
+    ],
+    "description": "Young man in a navy suit, full length",
+    "source": "Unsplash",
+    "page": "https://images.unsplash.com/photo-1636452147682-e624f9fc70c4",
+    "license": "Unsplash License",
+    "author": null,
+    "added": "2026-10-18"
+  },
+  {
+    "file": "library/people/founder.png",
+    "kind": "people",
+    "size": [
+      900,
+      1856
+    ],
+    "cutout": true,
+    "tags": [
+      "man",
+      "businessman",
+      "founder",
+      "smiling",
+      "suit",
+      "waist-up"
+    ],
+    "description": "Smiling man in a dark suit, waist-up",
+    "source": "Unsplash",
+    "page": "https://images.unsplash.com/photo-1613181013804-1dcba09e6a9d",
+    "license": "Unsplash License",
+    "author": null,
+    "added": "2026-10-18"
+  },
+  {
+    "file": "library/people/happy-founder.png",
+    "kind": "people",
+    "size": [
+      1206,
+      2141
+    ],
+    "cutout": true,
+    "tags": [
+      "man",
+      "businessman",
+      "smiling",
+      "arms-crossed",
+      "grey-suit"
+    ],
+    "description": "Smiling man in a grey suit, arms crossed, to the knees",
+    "source": "Unsplash",
+    "page": "https://images.unsplash.com/photo-1559718062-361155fad299",
+    "license": "Unsplash License",
+    "author": null,
+    "added": "2026-10-18"
+  },
+  {
+    "file": "library/people/sad-exec.png",
+    "kind": "people",
+    "size": [
+      1048,
+      1969
+    ],
+    "cutout": true,
+    "tags": [
+      "man",
+      "businessman",
+      "executive",
+      "black-suit",
+      "serious"
+    ],
+    "description": "Serious man in a black suit and striped tie, to the knees",
+    "source": "Unsplash",
+    "page": "https://images.unsplash.com/photo-1585846416120-3a7354ed7d39",
+    "license": "Unsplash License",
+    "author": null,
+    "added": "2026-10-18"
+  },
+  {
+    "file": "library/places/blockbuster-bg.jpg",
+    "kind": "places",
+    "size": [
+      1920,
+      1267
+    ],
+    "cutout": false,
+    "tags": [
+      "blockbuster",
+      "storefront",
+      "store",
+      "video-rental",
+      "parking"
+    ],
+    "description": "The last Blockbuster storefront, straight on",
+    "source": "Wikimedia Commons",
+    "page": "https://commons.wikimedia.org/wiki/File:The_Last_Blockbuster_storefront.jpg",
+    "license": "CC0",
+    "author": "UpdateNerd",
+    "added": "2026-10-18"
+  },
+  {
+    "file": "library/places/glass-tower-bg.jpg",
+    "kind": "places",
+    "size": [
+      1600,
+      2400
+    ],
+    "cutout": false,
+    "tags": [
+      "skyscraper",
+      "glass",
+      "office",
+      "tower",
+      "looking-up"
+    ],
+    "description": "Glass office tower, looking up",
+    "source": "Unsplash",
+    "page": "https://images.unsplash.com/photo-1690944851207-3f288c8fcd0b",
+    "license": "Unsplash License",
+    "author": null,
+    "added": "2026-10-18"
+  },
+  {
+    "file": "library/places/hq-building.png",
+    "kind": "places",
+    "size": [
+      2079,
+      1561
+    ],
+    "cutout": true,
+    "tags": [
+      "netflix",
+      "headquarters",
+      "building",
+      "los-gatos",
+      "office"
+    ],
+    "description": "Netflix's former Los Gatos HQ with the sky removed",
+    "source": "Wikimedia Commons",
+    "page": "https://commons.wikimedia.org/wiki/File:Netflix_headquarters.jpg",
+    "license": "CC BY-SA 3.0",
+    "author": "Coolcaesar",
+    "added": "2026-10-18"
+  },
+  {
+    "file": "library/places/jellyfish-dark.jpg",
+    "kind": "places",
+    "size": [
+      1350,
+      2400
+    ],
+    "cutout": false,
+    "tags": [
+      "jellyfish",
+      "glow",
+      "dark",
+      "underwater",
+      "neon"
+    ],
+    "description": "Glowing jellyfish on black",
+    "source": "Unsplash",
+    "page": "https://images.unsplash.com/photo-1540968221243-29f5d70540bf",
+    "license": "Unsplash License",
+    "author": null,
+    "added": "2026-10-19"
+  },
+  {
+    "file": "library/places/library-bg.jpg",
+    "kind": "places",
+    "size": [
+      1601,
+      2400
+    ],
+    "cutout": false,
+    "tags": [
+      "library",
+      "study",
+      "bookshelves",
+      "lamp",
+      "desk",
+      "interior",
+      "warm"
+    ],
+    "description": "Warm home library with a desk and table lamp",
+    "source": "Unsplash",
+    "page": "https://images.unsplash.com/photo-1531079997448-485eb7235a2b",
+    "license": "Unsplash License",
+    "author": null,
+    "added": "2026-10-18"
+  },
+  {
+    "file": "library/sfx/boom.wav",
+    "kind": "sfx",
+    "size": null,
+    "cutout": false,
+    "tags": [
+      "boom",
+      "sfx"
+    ],
+    "description": "Low sub boom",
+    "source": "Synthesized (tools/sound.py)",
+    "page": null,
+    "license": "Own work",
+    "author": null,
+    "added": "2026-10-18"
+  },
+  {
+    "file": "library/sfx/cha-ching.wav",
+    "kind": "sfx",
+    "size": null,
+    "cutout": false,
+    "tags": [
+      "cha",
+      "ching",
+      "sfx"
+    ],
+    "description": "Cash register cha-ching",
+    "source": "Synthesized (tools/sound.py)",
+    "page": null,
+    "license": "Own work",
+    "author": null,
+    "added": "2026-10-18"
+  },
+  {
+    "file": "library/sfx/focus-hunt.wav",
+    "kind": "sfx",
+    "size": null,
+    "cutout": false,
+    "tags": [
+      "focus",
+      "hunt",
+      "sfx"
+    ],
+    "description": "Lens focus motor whirr",
+    "source": "Synthesized (tools/sound.py)",
+    "page": null,
+    "license": "Own work",
+    "author": null,
+    "added": "2026-10-18"
+  },
+  {
+    "file": "library/sfx/glitch.wav",
+    "kind": "sfx",
+    "size": null,
+    "cutout": false,
+    "tags": [
+      "glitch",
+      "sfx"
+    ],
+    "description": "Digital glitch zap",
+    "source": "Synthesized (tools/sound.py)",
+    "page": null,
+    "license": "Own work",
+    "author": null,
+    "added": "2026-10-18"
+  },
+  {
+    "file": "library/sfx/neon-buzz.wav",
+    "kind": "sfx",
+    "size": null,
+    "cutout": false,
+    "tags": [
+      "neon",
+      "buzz",
+      "sfx"
+    ],
+    "description": "Flickering neon / lamp hum",
+    "source": "Synthesized (tools/sound.py)",
+    "page": null,
+    "license": "Own work",
+    "author": null,
+    "added": "2026-10-18"
+  },
+  {
+    "file": "library/sfx/paper-slap.wav",
+    "kind": "sfx",
+    "size": null,
+    "cutout": false,
+    "tags": [
+      "paper",
+      "slap",
+      "sfx"
+    ],
+    "description": "Paper landing on a desk",
+    "source": "Synthesized (tools/sound.py)",
+    "page": null,
+    "license": "Own work",
+    "author": null,
+    "added": "2026-10-18"
+  },
+  {
+    "file": "library/sfx/pop.wav",
+    "kind": "sfx",
+    "size": null,
+    "cutout": false,
+    "tags": [
+      "pop",
+      "sfx"
+    ],
+    "description": "Small pop for text",
+    "source": "Synthesized (tools/sound.py)",
+    "page": null,
+    "license": "Own work",
+    "author": null,
+    "added": "2026-10-18"
+  },
+  {
+    "file": "library/sfx/scribble.wav",
+    "kind": "sfx",
+    "size": null,
+    "cutout": false,
+    "tags": [
+      "scribble",
+      "sfx"
+    ],
+    "description": "Pen scribble",
+    "source": "Synthesized (tools/sound.py)",
+    "page": null,
+    "license": "Own work",
+    "author": null,
+    "added": "2026-10-18"
+  },
+  {
+    "file": "library/sfx/shutter.wav",
+    "kind": "sfx",
+    "size": null,
+    "cutout": false,
+    "tags": [
+      "shutter",
+      "sfx"
+    ],
+    "description": "Vintage camera shutter",
+    "source": "Synthesized (tools/sound.py)",
+    "page": null,
+    "license": "Own work",
+    "author": null,
+    "added": "2026-10-18"
+  },
+  {
+    "file": "library/sfx/slot-spin.wav",
+    "kind": "sfx",
+    "size": null,
+    "cutout": false,
+    "tags": [
+      "slot",
+      "spin",
+      "sfx"
+    ],
+    "description": "Slot reel ticking",
+    "source": "Synthesized (tools/sound.py)",
+    "page": null,
+    "license": "Own work",
+    "author": null,
+    "added": "2026-10-18"
+  },
+  {
+    "file": "library/sfx/slot-stop.wav",
+    "kind": "sfx",
+    "size": null,
+    "cutout": false,
+    "tags": [
+      "slot",
+      "stop",
+      "sfx"
+    ],
+    "description": "Slot reel clunk and ding",
+    "source": "Synthesized (tools/sound.py)",
+    "page": null,
+    "license": "Own work",
+    "author": null,
+    "added": "2026-10-18"
+  },
+  {
+    "file": "library/sfx/ta-dum.wav",
+    "kind": "sfx",
+    "size": null,
+    "cutout": false,
+    "tags": [
+      "ta",
+      "dum",
+      "sfx"
+    ],
+    "description": "Two-hit cinematic ident",
+    "source": "Synthesized (tools/sound.py)",
+    "page": null,
+    "license": "Own work",
+    "author": null,
+    "added": "2026-10-18"
+  },
+  {
+    "file": "library/sfx/whoosh-entrance.wav",
+    "kind": "sfx",
+    "size": null,
+    "cutout": false,
+    "tags": [
+      "whoosh",
+      "entrance",
+      "sfx"
+    ],
+    "description": "Rising whoosh for entrances",
+    "source": "Synthesized (tools/sound.py)",
+    "page": null,
+    "license": "Own work",
+    "author": null,
+    "added": "2026-10-18"
+  },
+  {
+    "file": "library/sfx/whoosh-long.wav",
+    "kind": "sfx",
+    "size": null,
+    "cutout": false,
+    "tags": [
+      "whoosh",
+      "long",
+      "sfx"
+    ],
+    "description": "Long cinematic whoosh for zoom-throughs",
+    "source": "Synthesized (tools/sound.py)",
+    "page": null,
+    "license": "Own work",
+    "author": null,
+    "added": "2026-10-18"
+  },
+  {
+    "file": "library/sfx/whoosh-quick.wav",
+    "kind": "sfx",
+    "size": null,
+    "cutout": false,
+    "tags": [
+      "whoosh",
+      "quick",
+      "sfx"
+    ],
+    "description": "Quick whoosh for swings and pans",
+    "source": "Synthesized (tools/sound.py)",
+    "page": null,
+    "license": "Own work",
+    "author": null,
+    "added": "2026-10-18"
+  },
+  {
+    "file": "library/surfaces/paper-wall.jpg",
+    "kind": "surfaces",
+    "size": [
+      1600,
+      2400
+    ],
+    "cutout": false,
+    "tags": [
+      "paper",
+      "crumpled",
+      "texture",
+      "wall",
+      "white"
+    ],
+    "description": "White crumpled paper",
+    "source": "Wikimedia Commons",
+    "page": "https://commons.wikimedia.org/wiki/File:Free_crumpled_paper_texture_for_layers_(2978651767).jpg",
+    "license": "CC BY 2.0",
+    "author": "Pink Sherbet Photography",
+    "added": "2026-10-18"
+  },
+  {
+    "file": "library/surfaces/wood-desk.jpg",
+    "kind": "surfaces",
+    "size": [
+      2000,
+      1333
+    ],
+    "cutout": false,
+    "tags": [
+      "wood",
+      "desk",
+      "table",
+      "planks",
+      "dark"
+    ],
+    "description": "Dark wood planks",
+    "source": "Unsplash",
+    "page": "https://images.unsplash.com/photo-1506968430777-bf7784a87f23",
+    "license": "Unsplash License",
+    "author": null,
+    "added": "2026-10-18"
+  },
+  {
+    "file": "library/textures/grain.jpg",
+    "kind": "textures",
+    "size": [
+      1080,
+      1920
+    ],
+    "cutout": false,
+    "tags": [
+      "grain",
+      "film",
+      "noise",
+      "overlay"
+    ],
+    "description": "Mid-grey film grain for overlay blending",
+    "source": "Generated",
+    "page": null,
+    "license": "Own work",
+    "author": null,
+    "added": "2026-10-18"
+  },
+  {
+    "file": "library/textures/grunge.jpg",
+    "kind": "textures",
+    "size": [
+      1080,
+      1920
+    ],
+    "cutout": false,
+    "tags": [
+      "grunge",
+      "dust",
+      "scratches",
+      "overlay"
+    ],
+    "description": "Light grunge with dust and scratches for multiply blending",
+    "source": "Generated",
+    "page": null,
+    "license": "Own work",
+    "author": null,
+    "added": "2026-10-18"
+  }
+]
